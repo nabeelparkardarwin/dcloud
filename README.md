@@ -1,22 +1,18 @@
-A library for Dart developers.
+# DCloud
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+SDK for interfacing with DCloud
 
 ## Usage
 
 A simple usage example:
 
 ```dart
-import 'package:dcloud/dcloud.dart';
+import 'package:d_cloud/d_cloud.dart';
 
-main() {
-  var awesome = new Awesome();
+Future<void> main() async {
+  final dCloud = DCloud(apiKey: 'your-api-key', apiSecret: 'your-secret-key');
+  final file = File(join(current, 'example', 'pic.jpeg'));
+  final result = await dCloud.upload(file);
+  print(result);
 }
 ```
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
