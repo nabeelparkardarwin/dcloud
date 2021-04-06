@@ -23,7 +23,7 @@ class DCloudRepository implements IDCloudRepository {
   }
 
   @override
-  Future<DCloudUploadResult> upload(File file) async {
+  Future<DCloudUploadResult> upload(File file, {ProgressCallback? onSendProgress}) async {
     if (await file.length() > maxFileLength) throw FileTooLargeException();
 
     const url = '/upload';
@@ -32,7 +32,7 @@ class DCloudRepository implements IDCloudRepository {
     });
 
     try {
-      final response = await dio.post<Map>(url, data: requestData);
+      final response = await dio.post<Map>(url, data: requestData, onSendProgress: onSendProgress);
 
       final data = response.data!;
       final successStatus = data['status'] as bool;
