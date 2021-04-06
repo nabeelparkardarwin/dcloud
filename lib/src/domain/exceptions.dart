@@ -23,4 +23,20 @@ class ClientException implements Exception {
   }
 }
 
-class FileTooLargeException extends Error {}
+class FileTooLargeException implements Exception {
+  @override
+  String toString() {
+    return 'FileTooLargeException';
+  }
+}
+
+class RequestCancelledException implements Exception {
+  final String reason;
+
+  const RequestCancelledException(this.reason);
+
+  @override
+  String toString() {
+    return 'RequestCancelledException: $reason';
+  }
+}

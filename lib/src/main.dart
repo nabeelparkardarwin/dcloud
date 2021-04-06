@@ -14,7 +14,7 @@ class DCloud {
       : _repository = DCloudRepository(apiKey: apiKey, apiSecret: apiSecret);
 
   /// Upload a file to DCloud
-  Future<DCloudUploadResult> upload(File file, {ProgressCallback? onSendProgress}) async {
-    return _repository.upload(file, onSendProgress: onSendProgress);
+  Future<DCloudUploadResult> upload(File file, {ProgressCallback? onSendProgress, CancelToken? cancelToken}) async {
+    return _repository.upload(file, onSendProgress: onSendProgress, cancelToken: cancelToken);
   }
 }

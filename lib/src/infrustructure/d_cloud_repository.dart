@@ -23,7 +23,7 @@ class DCloudRepository implements IDCloudRepository {
   }
 
   @override
-  Future<DCloudUploadResult> upload(File file, {ProgressCallback? onSendProgress}) async {
+  Future<DCloudUploadResult> upload(File file, {ProgressCallback? onSendProgress, CancelToken? cancelToken}) async {
     if (await file.length() > maxFileLength) throw FileTooLargeException();
 
     const url = '/upload';
@@ -32,7 +32,12 @@ class DCloudRepository implements IDCloudRepository {
     });
 
     try {
-      final response = await dio.post<Map>(url, data: requestData, onSendProgress: onSendProgress);
+      final response = await dio.post<Map>(
+        url,
+        data: requestData,
+        onSendProgress: onSendProgress,
+        cancelToken: cancelToken,
+      );
 
       final data = response.data!;
       final successStatus = data['status'] as bool;
@@ -50,6 +55,10 @@ class DCloudRepository implements IDCloudRepository {
   }
 
   Never _handleDioError(DioError e) {
+    if (CancelToken.isCancel(e)) {
+      throw RequestCancelledException(e.error);
+    }
+
     final type = e.type;
 
     switch (type) {
