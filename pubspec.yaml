@@ -1,7 +1,7 @@
 ---
 name: d_cloud
 description: DCloud SDK for Dart / Flutter
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/nabeelparkardarwin/dcloud.git
 issue_tracker: https://github.com/nabeelparkardarwin/dcloud/issues
 environment:

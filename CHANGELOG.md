@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Added `CancelToken` support
+
 ## 0.0.2
 
 - Added `onSendProgress` callback to `upload()`
