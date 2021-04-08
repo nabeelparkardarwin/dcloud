@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Added docs to `upload()`
+
 ## 0.0.3
 
 - Added `CancelToken` support
