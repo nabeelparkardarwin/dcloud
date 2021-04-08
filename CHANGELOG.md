@@ -1,3 +1,7 @@
+## 0.0.4+1
+
+- Added export of `exceptions.dart` to `d_cloud.dart`
+
 ## 0.0.4
 
 - Added docs to `upload()`
