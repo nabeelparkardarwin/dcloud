@@ -1,3 +1,7 @@
+## 0.0.4+3
+
+- Added error object to `UnknownError`
+
 ## 0.0.4+2
 
 - Increased max upload size to 100MB

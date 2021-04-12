@@ -66,7 +66,7 @@ class DCloudRepository implements IDCloudRepository {
         final response = e.response!;
         _handleDioResponseError(response);
       case DioErrorType.other:
-        throw UnknownError();
+        throw UnknownError(e);
       default:
         throw SocketException('Cannot connect to the server');
     }
@@ -85,6 +85,6 @@ class DCloudRepository implements IDCloudRepository {
       throw InvalidApiCredentialsException();
     }
 
-    throw UnknownError();
+    throw UnknownError('Response from server: ${response.data}');
   }
 }

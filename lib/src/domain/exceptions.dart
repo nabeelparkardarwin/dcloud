@@ -1,7 +1,11 @@
-class UnknownError extends Error {
+class UnknownError implements Exception {
+  final dynamic e;
+
+  UnknownError(this.e);
+
   @override
   String toString() {
-    return 'UnknownError';
+    return 'UnknownError: $e';
   }
 }
 
